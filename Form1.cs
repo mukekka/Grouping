@@ -8,9 +8,44 @@ using System.Windows;
 namespace WinFormsApp1
 {
     public partial class Form1 : Form
-    {       
-        public void yxti1()
+    {
+        /*public List<int> Generate1()
         {
+            Random random = new Random();
+            List<int> result = new List<int>();
+            int temp;
+            while (result.Count < listBox2.Items.Count)
+            {
+                temp = random.Next(0, listBox3.Items.Count-1);
+                if (!result.Contains(temp))
+                {
+                    result.Add(temp);
+                }
+            }
+            return result;
+        }*/
+        static void PrintArr(int[] te)
+        {
+            for (int i = 0; i < te.Length; i++)
+            {
+                MessageBox.Show(Convert.ToString( te[i]));
+            }
+        }
+        static void RandomArr(int[] arr)
+        {
+            Random r = new Random();//创建随机类对象，定义引用变量为r
+            for (int i = 0; i < arr.Length; i++)
+            {
+                int index = r.Next(arr.Length);//随机获得0（包括0）到arr.Length（不包括arr.Length）的索引
+                int temp = arr[i];  //当前元素和随机元素交换位置
+                arr[i] = arr[index];
+                arr[index] = temp;
+            }
+            PrintArr(arr);//输出打乱后的数组元素
+        }
+
+        public void yxti1()
+        {//遍历剔除座号表和可用座号表，如果可用座号表某项与剔除座号重合，则将其剔除
             for (int i = 0; i < listBox1.Items.Count; i++)
             {
                 for (int j = i + 1; j < listBox4.Items.Count; j++)
@@ -21,7 +56,7 @@ namespace WinFormsApp1
             }
         }//剔除座号
         public void yxti2()
-        {
+        {//遍历带头人表和可用座号表，如果可用座号表某项与带头人重合，则将其剔除
             for (int i = 0; i < listBox2.Items.Count; i++)
             {
                 for (int j = i + 1; j < listBox4.Items.Count; j++)
@@ -45,30 +80,38 @@ namespace WinFormsApp1
         }
         public void quis()
         {
-            quis2();
-            for (int i = 0; i < listBox1.Items.Count; i++)
+            try//跳过错误
             {
-                for (int j = i; j < listBox2.Items.Count; j++)
+                quis2();
+                for (int i = 0; i < listBox1.Items.Count; i++)//遍历剔除座号表和带头人表，如果剔除座号表某项与带头人重合，则将其剔除
                 {
-                    if (listBox1.Items[i].Equals(listBox2.Items[j]))
-                        listBox1.Items.Remove(listBox2.Items[j]);
+                    for (int j = i; j < listBox2.Items.Count; j++)
+                    {
+                        if (listBox1.Items[i].Equals(listBox2.Items[j]))
+                            listBox1.Items.Remove(listBox2.Items[j]);
+                    }
                 }
+                for (int i = 0; i < listBox1.Items.Count; i++)//遍历剔除座号表，重合则删除
+                {
+                    for (int j = i + 1; j < listBox1.Items.Count; j++)
+                    {
+                        if (listBox1.Items[i].Equals(listBox1.Items[j]))
+                            listBox1.Items.Remove(listBox1.Items[j]);
+                    }
+                }
+                for (int i = 0; i < listBox2.Items.Count; i++)//遍历带头人表，重合则删除
+                {
+                    for (int j = i + 1; j < listBox2.Items.Count; j++)
+                    {
+                        if (listBox2.Items[i].Equals(listBox2.Items[j]))
+                            listBox2.Items.Remove(listBox2.Items[j]);
+                    }
+                }
+
             }
-            for (int i = 0; i < listBox1.Items.Count; i++)
+            catch
             {
-                for (int j = i + 1; j < listBox1.Items.Count; j++)
-                {
-                    if (listBox1.Items[i].Equals(listBox1.Items[j]))
-                        listBox1.Items.Remove(listBox1.Items[j]);
-                }
-            }
-            for (int i = 0; i < listBox2.Items.Count; i++)
-            {
-                for (int j = i + 1; j < listBox2.Items.Count; j++)
-                {
-                    if (listBox2.Items[i].Equals(listBox2.Items[j]))
-                        listBox2.Items.Remove(listBox2.Items[j]);
-                }
+
             }
         }
 
@@ -89,17 +132,21 @@ namespace WinFormsApp1
                 MessageBox.Show("人数不能为空或为零");
                 textBox1.Clear();
             }
-
             for (int i = 0; i < Convert.ToInt32(textBox1.Text); i++)
             {
                 listBox4.Items.Add(Convert.ToString(i+1));
             }
             yxti1();
             yxti2();
-            for (int i = 0; i < listBox2.Items.Count; i++)
+            /*
+            int arlong = listBox4.Items.Count / listBox2.Items.Count;
+            int arlongy = listBox4.Items.Count % listBox2.Items.Count;
+            int[] rfuu = new int[listBox3.Items.Count];
+            for (int i = 0; i < listBox3.Items.Count; i++)
             {
-                
-            }
+                rfuu[i] = Convert.ToInt32(listBox3.Items[i]);
+            }*/
+            //RandomArr(rfuu);
         }
 
         private void button3_Click(object sender, EventArgs e)//左下一个
