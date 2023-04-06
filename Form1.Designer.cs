@@ -48,6 +48,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.listBox4 = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -238,11 +239,22 @@
             this.label5.TabIndex = 25;
             this.label5.Text = "可用座号";
             // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(672, 182);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(112, 34);
+            this.button9.TabIndex = 26;
+            this.button9.Text = "生成随机数";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 681);
+            this.Controls.Add(this.button9);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.listBox4);
             this.Controls.Add(this.button8);
@@ -291,5 +303,6 @@
         private Button button8;
         private ListBox listBox4;
         private Label label5;
+        private Button button9;
     }
 }
