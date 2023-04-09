@@ -121,6 +121,7 @@ namespace WinFormsApp1
             }
             else
             {
+                listBox3.Items.Clear();
                 if (listBox4.Items.Count > 0)
                 {
                     listBox4.Items.Clear();//清空可用座号
@@ -140,8 +141,10 @@ namespace WinFormsApp1
 
                 int arlong = listBox4.Items.Count / listBox2.Items.Count;//求出平均每个带头人所带的组员数量
                 int arlongy = listBox4.Items.Count % listBox2.Items.Count;//多出的组员，稍后分配
+                //int arlongt = listBox4.Items.Count / arlong;
 
                 int[] rfuu = new int[listBox4.Items.Count];//定义一个长度等于可用座号表长度的数组
+                int offs = 0;
                 for (int i = 0; i < listBox4.Items.Count; i++)//
                 {
                     rfuu[i] = Convert.ToInt32(listBox4.Items[i]);//将可用座号中的值依次填入数组
@@ -149,17 +152,28 @@ namespace WinFormsApp1
                 RandomArr(rfuu);//随机打乱数组内的值
                 
                 List<string> listzh = new List<string>();//定义一个string类型的表
-
-                for (int i = 0; i < listBox2.Items.Count; i++)
+                //int x = 0;
+                for (int i = 0; i < listBox2.Items.Count; i++)//按带头人人数循环
                 {
-                    
-                    listzh.Add(Convert.ToString(listBox2.Items[i])+" : ");//把带头人和“:”填入表
+                    string jle = "";//初始化座号表
+                    for (int j = offs; j < offs+arlong; j++)//平均每个带头人要带的人数
+                    {
+                        jle += rfuu[j].ToString() + ",";//填入座号和逗号
+                    }
+                    offs += arlong;//保存数组指针
+                    listzh.Add(Convert.ToString(listBox2.Items[i])+" : "+jle);//把带头人、“:”、分好的座号填入表
                 }
                 foreach (string s in listzh)//遍历listzh表
                 {
                     listBox3.Items.Add(s);//填入结果
                 }
-
+                //把输出剩余的座号
+                string doyu = "剩余的座号：";
+                for (int i = offs; i < rfuu.Length; i++)//
+                {
+                    doyu += rfuu[i].ToString() + ",";
+                }
+                listBox3.Items.Add(doyu);
             }
         }
 

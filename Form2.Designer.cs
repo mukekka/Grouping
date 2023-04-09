@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // button1
@@ -67,11 +69,16 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(123, 97);
+            this.label2.Location = new System.Drawing.Point(185, 97);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(205, 78);
+            this.label2.Size = new System.Drawing.Size(68, 78);
             this.label2.TabIndex = 3;
-            this.label2.Text = "label2";
+            this.label2.Text = "0";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 50;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form2
             // 
@@ -95,5 +102,6 @@
         private TextBox textBox1;
         private Label label1;
         private Label label2;
+        private System.Windows.Forms.Timer timer1;
     }
 }

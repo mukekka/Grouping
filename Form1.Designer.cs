@@ -49,6 +49,9 @@
             this.listBox4 = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1
@@ -249,11 +252,43 @@
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Location = new System.Drawing.Point(239, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(273, 78);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "自动分组";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(569, 648);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(72, 24);
+            this.linkLabel1.TabIndex = 28;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "GitHub";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(474, 648);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(100, 24);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "源代码链接";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 681);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.listBox4);
@@ -304,5 +339,8 @@
         private ListBox listBox4;
         private Label label5;
         private Button button9;
+        private Label label6;
+        private LinkLabel linkLabel1;
+        private Label label7;
     }
 }
