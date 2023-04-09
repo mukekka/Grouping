@@ -324,11 +324,6 @@ namespace WinFormsApp1
             f.ShowDialog();
         }
 
-        private void button10_Click(object sender, EventArgs e)
-        {
-            Process.Start("https://github.com/mukekka/-");
-        }
-
         private void button8_Click(object sender, EventArgs e)
         {
             if (listBox3.Items.Count != 0)
@@ -339,11 +334,13 @@ namespace WinFormsApp1
                     str[i] = listBox3.Items[i].ToString();
                 }
                 File.WriteAllLines(@".\分组.txt", str);
+                MessageBox.Show("创建完成");
             }
             else
             {
                 MessageBox.Show("无内容");
             }
         }
+        //
     }
 }
