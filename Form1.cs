@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Diagnostics;
+using System.IO;
 
 namespace WinFormsApp1
 {
@@ -13,7 +15,7 @@ namespace WinFormsApp1
         {
             for (int i = 0; i < te.Length; i++)
             {
-                MessageBox.Show(Convert.ToString( te[i]));
+                MessageBox.Show(Convert.ToString(te[i]));
             }
         }//打印数组
         static void RandomArr(int[] arr)
@@ -115,7 +117,7 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (listBox2.Items.Count==0)//若带头人数量为0
+            if (listBox2.Items.Count == 0)//若带头人数量为0
             {
                 MessageBox.Show("带头人至少输入一个");
             }
@@ -150,18 +152,18 @@ namespace WinFormsApp1
                     rfuu[i] = Convert.ToInt32(listBox4.Items[i]);//将可用座号中的值依次填入数组
                 }
                 RandomArr(rfuu);//随机打乱数组内的值
-                
+
                 List<string> listzh = new List<string>();//定义一个string类型的表
                 //int x = 0;
                 for (int i = 0; i < listBox2.Items.Count; i++)//按带头人人数循环
                 {
                     string jle = "";//初始化座号表
-                    for (int j = offs; j < offs+arlong; j++)//平均每个带头人要带的人数
+                    for (int j = offs; j < offs + arlong; j++)//平均每个带头人要带的人数
                     {
                         jle += rfuu[j].ToString() + ",";//填入座号和逗号
                     }
                     offs += arlong;//保存数组指针
-                    listzh.Add(Convert.ToString(listBox2.Items[i])+" : "+jle);//把带头人、“:”、分好的座号填入表
+                    listzh.Add(Convert.ToString(listBox2.Items[i]) + " : " + jle);//把带头人、“:”、分好的座号填入表
                 }
                 foreach (string s in listzh)//遍历listzh表
                 {
@@ -189,7 +191,7 @@ namespace WinFormsApp1
                 MessageBox.Show("座号超出范围");
                 textBox3.Clear();
             }
-            else if (listBox1.Items.Count > Convert.ToInt32(textBox1.Text)-1)
+            else if (listBox1.Items.Count > Convert.ToInt32(textBox1.Text) - 1)
             {
                 MessageBox.Show("人数太多了");
                 textBox3.Clear();
@@ -209,7 +211,7 @@ namespace WinFormsApp1
             }
             else
             {
-                listBox1.Items.RemoveAt(listBox1.Items.Count-1);
+                listBox1.Items.RemoveAt(listBox1.Items.Count - 1);
                 textBox3.Clear();
             }
         }//左撤回
@@ -253,7 +255,7 @@ namespace WinFormsApp1
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
                 e.Handled = true;
         }
 
@@ -295,7 +297,7 @@ namespace WinFormsApp1
             }
             else
             {
-                button3.Enabled= true;
+                button3.Enabled = true;
             }
         }
 
@@ -320,6 +322,28 @@ namespace WinFormsApp1
         {
             Form2 f = new Form2();
             f.ShowDialog();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/mukekka/-");
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            if (listBox3.Items.Count != 0)
+            {
+                string[] str = new string[listBox3.Items.Count];
+                for (int i = 0; i < listBox3.Items.Count; i++)
+                {
+                    str[i] = listBox3.Items[i].ToString();
+                }
+                File.WriteAllLines(@".\分组.txt", str);
+            }
+            else
+            {
+                MessageBox.Show("无内容");
+            }
         }
     }
 }

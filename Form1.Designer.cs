@@ -50,8 +50,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.button10 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -223,6 +222,7 @@
             this.button8.TabIndex = 23;
             this.button8.Text = "导出为文本";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // listBox4
             // 
@@ -262,32 +262,22 @@
             this.label6.TabIndex = 27;
             this.label6.Text = "自动分组";
             // 
-            // linkLabel1
+            // button10
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(569, 648);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(72, 24);
-            this.linkLabel1.TabIndex = 28;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "GitHub";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(474, 648);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 24);
-            this.label7.TabIndex = 29;
-            this.label7.Text = "源代码链接";
+            this.button10.Location = new System.Drawing.Point(474, 643);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(112, 34);
+            this.button10.TabIndex = 28;
+            this.button10.Text = "获取源码";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(801, 681);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.label5);
@@ -340,7 +330,6 @@
         private Label label5;
         private Button button9;
         private Label label6;
-        private LinkLabel linkLabel1;
-        private Label label7;
+        private Button button10;
     }
 }
