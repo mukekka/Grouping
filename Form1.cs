@@ -13,9 +13,9 @@ namespace WinFormsApp1
     {
         static void PrintArr(int[] te)
         {
-            for (int i = 0; i < te.Length; i++)
+            foreach(int i in te)
             {
-                MessageBox.Show(Convert.ToString(te[i]));
+                MessageBox.Show(i.ToString());
             }
         }//打印数组，测试用途
         static void RandomArr(int[] arr)
@@ -33,23 +33,23 @@ namespace WinFormsApp1
 
         public void yxti1()
         {//遍历空号表和可用座号表，如果可用座号表某项与剔除座号重合，则将其剔除
-            for (int i = 0; i < listBox1.Items.Count; i++)
+            for (int i = 0; i < listBox4.Items.Count; i++)
             {
-                for (int j = i; j < listBox4.Items.Count; j++)
+                for (int j = i; j < listBox1.Items.Count; j++)
                 {
-                    if (listBox1.Items[i].Equals(listBox4.Items[j]))
-                        listBox4.Items.Remove(listBox1.Items[i]);
+                    if (listBox4.Items[i].Equals(listBox1.Items[j]))
+                        listBox4.Items.RemoveAt(i);
                 }
             }
         }//空号
         public void yxti2()
         {//遍历带头人表和可用座号表，如果可用座号表某项与带头人重合，则将其剔除
-            for (int i = 0; i < listBox2.Items.Count; i++)
+            for (int i = 0; i < listBox4.Items.Count; i++)
             {
-                for (int j = i; j < listBox4.Items.Count; j++)
+                for (int j = i; j < listBox2.Items.Count; j++)
                 {
-                    if (listBox2.Items[i].Equals(listBox4.Items[j]))
-                        listBox4.Items.Remove(listBox2.Items[i]);
+                    if (listBox4.Items[i].Equals(listBox2.Items[j]))
+                        listBox4.Items.RemoveAt(i);
                 }
             }
         }//带头人
@@ -62,7 +62,7 @@ namespace WinFormsApp1
                 {
                     if (listBox1.Items[i].Equals(listBox2.Items[j]))//若空号表某项与某个带头人相同
                     {
-                        listBox1.Items.Remove(listBox2.Items[j]);//去除
+                        listBox1.Items.RemoveAt(i);//去除
                     }
                 }
             }
@@ -72,13 +72,13 @@ namespace WinFormsApp1
             try//跳过错误
             {
                 quis2();
-                for (int i = 0; i < listBox1.Items.Count; i++)//遍历带头人表
+                for (int i = 0; i < listBox1.Items.Count; i++)//遍历空号人表
                 {
                     for (int j = i; j < listBox2.Items.Count; j++)//遍历带头人表
                     {
                         if (listBox1.Items[i].Equals(listBox2.Items[j]))//如果某项重复
                         {
-                            listBox1.Items.Remove(listBox2.Items[j]);//去除
+                            listBox1.Items.RemoveAt(i);//去除
                         }
                     }
                 }
@@ -88,20 +88,20 @@ namespace WinFormsApp1
                     {
                         if (listBox1.Items[i].Equals(listBox1.Items[j]))//如果某项重复
                         {
-                            listBox1.Items.Remove(listBox1.Items[j]);//去除
+                            listBox1.Items.RemoveAt(i);//去除
                         }
                     }
                 }
-                /*for (int i = 0; i < listBox2.Items.Count; i++)//遍历带头人表，重合则删除
+                for (int i = 0; i < listBox2.Items.Count; i++)//遍历带头人表
                 {
                     for (int j = i + 1; j < listBox2.Items.Count; j++)
                     {
-                        if (listBox2.Items[i].Equals(listBox2.Items[j]))
+                        if (listBox2.Items[i].Equals(listBox2.Items[j]))//如果某项重复
                         {
-                            listBox2.Items.Remove(listBox2.Items[j]);
+                            listBox2.Items.RemoveAt(i);//重合则删除
                         }
                     }
-                }*/
+                }
             }
             catch
             {
