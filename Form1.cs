@@ -17,7 +17,7 @@ namespace WinFormsApp1
             {
                 MessageBox.Show(Convert.ToString(te[i]));
             }
-        }//打印数组，测试用
+        }//打印数组，测试用途
         static void RandomArr(int[] arr)
         {
             Random r = new Random();//创建随机类对象，定义引用变量为r
