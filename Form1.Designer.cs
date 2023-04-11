@@ -102,9 +102,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(12, 220);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(136, 24);
+            this.label3.Size = new System.Drawing.Size(82, 24);
             this.label3.TabIndex = 10;
-            this.label3.Text = "输入要剔除的人";
+            this.label3.Text = "输入空号";
             // 
             // button1
             // 

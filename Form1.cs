@@ -56,13 +56,13 @@ namespace WinFormsApp1
 
         public void quis2()//去除空号表与带头人表重复的
         {
-            for (int i = 0; i < listBox1.Items.Count; i++)
+            for (int i = 0; i < listBox1.Items.Count; i++)//遍历空号表
             {
-                for (int j = i; j < listBox2.Items.Count; j++)
+                for (int j = i; j < listBox2.Items.Count; j++)//遍历带头人表
                 {
-                    if (listBox1.Items[i].Equals(listBox2.Items[j]))
+                    if (listBox1.Items[i].Equals(listBox2.Items[j]))//若空号表某项与某个带头人相同
                     {
-                        listBox1.Items.Remove(listBox2.Items[j]);
+                        listBox1.Items.Remove(listBox2.Items[j]);//去除
                     }
                 }
             }
@@ -72,27 +72,27 @@ namespace WinFormsApp1
             try//跳过错误
             {
                 quis2();
-                for (int i = 0; i < listBox1.Items.Count; i++)//遍历剔除座号表和带头人表，如果剔除座号表某项与带头人重合，则将其剔除
+                for (int i = 0; i < listBox1.Items.Count; i++)//遍历带头人表
                 {
-                    for (int j = i; j < listBox2.Items.Count; j++)
+                    for (int j = i; j < listBox2.Items.Count; j++)//遍历带头人表
                     {
-                        if (listBox1.Items[i].Equals(listBox2.Items[j]))
+                        if (listBox1.Items[i].Equals(listBox2.Items[j]))//如果某项重复
                         {
-                            listBox1.Items.Remove(listBox2.Items[j]);
+                            listBox1.Items.Remove(listBox2.Items[j]);//去除
                         }
                     }
                 }
-                for (int i = 0; i < listBox1.Items.Count; i++)//遍历剔除座号表，重合则删除
+                for (int i = 0; i < listBox1.Items.Count; i++)//遍历空号表
                 {
-                    for (int j = i + 1; j < listBox1.Items.Count; j++)
+                    for (int j = i + 1; j < listBox1.Items.Count; j++)//遍历空号表
                     {
-                        if (listBox1.Items[i].Equals(listBox1.Items[j]))
+                        if (listBox1.Items[i].Equals(listBox1.Items[j]))//如果某项重复
                         {
-                            listBox1.Items.Remove(listBox1.Items[j]);
+                            listBox1.Items.Remove(listBox1.Items[j]);//去除
                         }
                     }
                 }
-                for (int i = 0; i < listBox2.Items.Count; i++)//遍历带头人表，重合则删除
+                /*for (int i = 0; i < listBox2.Items.Count; i++)//遍历带头人表，重合则删除
                 {
                     for (int j = i + 1; j < listBox2.Items.Count; j++)
                     {
@@ -101,8 +101,7 @@ namespace WinFormsApp1
                             listBox2.Items.Remove(listBox2.Items[j]);
                         }
                     }
-                }
-
+                }*/
             }
             catch
             {
@@ -138,7 +137,7 @@ namespace WinFormsApp1
                 {
                     listBox4.Items.Add(Convert.ToString(i + 1));//将全部座号填入表
                 }
-                yxti2();//剔除带头人
+                yxti2();//剔除空号
                 yxti1();//剔除座号
 
                 int arlong = listBox4.Items.Count / listBox2.Items.Count;//求出平均每个带头人所带的组员数量
@@ -163,7 +162,7 @@ namespace WinFormsApp1
                     }
                     jle = jle.Substring(0, jle.Length - 1);
                     ptr += arlong;//保存数组指针
-                    listzh.Add("第"+(i+1)+"组——"+Convert.ToString(listBox2.Items[i]) + " : " + jle);//把带头人、“:”、分好的座号填入表
+                    listzh.Add("第"+(i+1)+"组—"+listBox2.Items[i].ToString()+" : "+jle);//把组号、带头人、“:”、分好的座号填入表
                 }
                 foreach (string s in listzh)//遍历listzh表
                 {
