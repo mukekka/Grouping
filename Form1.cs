@@ -35,9 +35,9 @@ namespace WinFormsApp1
         {//遍历空号表和可用座号表，如果可用座号表某项与剔除座号重合，则将其剔除
             for (int i = 0; i < listBox4.Items.Count; i++)
             {
-                for (int j = i; j < listBox1.Items.Count; j++)
+                for (int j = 0 ; j < listBox1.Items.Count; j++)
                 {
-                    if (listBox4.Items[i].Equals(listBox1.Items[j]))
+                    if (listBox1.Items[j].Equals(listBox4.Items[i]))
                         listBox4.Items.RemoveAt(i);
                 }
             }
@@ -46,9 +46,9 @@ namespace WinFormsApp1
         {//遍历带头人表和可用座号表，如果可用座号表某项与带头人重合，则将其剔除
             for (int i = 0; i < listBox4.Items.Count; i++)
             {
-                for (int j = i; j < listBox2.Items.Count; j++)
+                for (int j = 0; j < listBox2.Items.Count; j++)
                 {
-                    if (listBox4.Items[i].Equals(listBox2.Items[j]))
+                    if (listBox2.Items[j].Equals(listBox4.Items[i]))
                         listBox4.Items.RemoveAt(i);
                 }
             }
@@ -58,7 +58,7 @@ namespace WinFormsApp1
         {
             for (int i = 0; i < listBox1.Items.Count; i++)//遍历空号表
             {
-                for (int j = i; j < listBox2.Items.Count; j++)//遍历带头人表
+                for (int j = i + 1; j < listBox2.Items.Count; j++)//遍历带头人表
                 {
                     if (listBox1.Items[i].Equals(listBox2.Items[j]))//若空号表某项与某个带头人相同
                     {
@@ -74,7 +74,7 @@ namespace WinFormsApp1
                 quis2();
                 for (int i = 0; i < listBox1.Items.Count; i++)//遍历空号人表
                 {
-                    for (int j = i; j < listBox2.Items.Count; j++)//遍历带头人表
+                    for (int j = i + 1; j < listBox2.Items.Count; j++)//遍历带头人表
                     {
                         if (listBox1.Items[i].Equals(listBox2.Items[j]))//如果某项重复
                         {
@@ -255,22 +255,30 @@ namespace WinFormsApp1
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)//允许输入数字和退格
                 e.Handled = true;
         }
 
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)//允许输入数字和退格
                 e.Handled = true;
+            else if(e.KeyChar == 0xDA)
+            {
+                button2.PerformClick();
+            }
             if (textBox1.Text == "")
                 e.Handled = true;
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)//允许输入数字和退格
                 e.Handled = true;
+            else if (e.KeyChar == 0xDA)
+            {
+                button3.PerformClick();
+            }
             if (textBox1.Text == "")
                 e.Handled = true;
         }
