@@ -32,24 +32,27 @@ namespace WinFormsApp1
         }//随机打乱数组
 
         public void yxti1()
-        {//遍历空号表和可用座号表，如果可用座号表某项与剔除座号重合，则将其剔除
-            for (int i = 0; i < listBox4.Items.Count; i++)
+        {//遍历空号表和可用座号表，如果可用座号表某项与空号重合，则将其剔除
+            for (int i = 0; i < listBox1.Items.Count; i++)//遍历空号表<----------------重点：空号表要在外循环
             {
-                for (int j = 0 ; j < listBox1.Items.Count; j++)
+                for (int j = 0 ; j < listBox4.Items.Count; j++)//遍历可用座号表
                 {
-                    if (listBox1.Items[j].Equals(listBox4.Items[i]))
-                        listBox4.Items.RemoveAt(i);
+                    if (listBox4.Items[j].Equals(listBox1.Items[i]))//若相同
+                        listBox4.Items.RemoveAt(j);//删去
                 }
             }
+            //若先循环可用座号表，可用座号表变化的时候会漏掉后面的数(若相邻两个数，前者大于后者(4,3)，会遗漏掉前者)
         }//空号
         public void yxti2()
         {//遍历带头人表和可用座号表，如果可用座号表某项与带头人重合，则将其剔除
-            for (int i = 0; i < listBox4.Items.Count; i++)
+            for (int i = 0; i < listBox2.Items.Count; i++)//遍历带头人表<----------------重点：带头人表要在外循环
             {
-                for (int j = 0; j < listBox2.Items.Count; j++)
+                for (int j = 0; j < listBox4.Items.Count; j++)//遍历可用座号表
                 {
-                    if (listBox2.Items[j].Equals(listBox4.Items[i]))
-                        listBox4.Items.RemoveAt(i);
+                    if (listBox4.Items[j].Equals(listBox2.Items[i]))//若相同
+                    {
+                        listBox4.Items.RemoveAt(j);//删去
+                    }
                 }
             }
         }//带头人
@@ -263,7 +266,7 @@ namespace WinFormsApp1
         {
             if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)//允许输入数字和退格
                 e.Handled = true;
-            else if(e.KeyChar == 0xDA)
+            else if(e.KeyChar == 0xDA)//13,10,回车键的ASCII码
             {
                 button2.PerformClick();
             }
