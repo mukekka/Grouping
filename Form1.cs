@@ -17,7 +17,7 @@ namespace WinFormsApp1
             {
                 MessageBox.Show(Convert.ToString(te[i]));
             }
-        }//打印数组
+        }//打印数组，测试用
         static void RandomArr(int[] arr)
         {
             Random r = new Random();//创建随机类对象，定义引用变量为r
@@ -32,7 +32,7 @@ namespace WinFormsApp1
         }//随机打乱数组
 
         public void yxti1()
-        {//遍历剔除座号表和可用座号表，如果可用座号表某项与剔除座号重合，则将其剔除
+        {//遍历空号表和可用座号表，如果可用座号表某项与剔除座号重合，则将其剔除
             for (int i = 0; i < listBox1.Items.Count; i++)
             {
                 for (int j = i; j < listBox4.Items.Count; j++)
@@ -41,7 +41,7 @@ namespace WinFormsApp1
                         listBox4.Items.Remove(listBox1.Items[i]);
                 }
             }
-        }//剔除座号
+        }//空号
         public void yxti2()
         {//遍历带头人表和可用座号表，如果可用座号表某项与带头人重合，则将其剔除
             for (int i = 0; i < listBox2.Items.Count; i++)
