@@ -122,7 +122,7 @@ namespace WinFormsApp1
             }
             else
             {
-                listBox3.Items.Clear();
+                listBox3.Items.Clear();//清空结果
                 if (listBox4.Items.Count > 0)
                 {
                     listBox4.Items.Clear();//清空可用座号
@@ -341,7 +341,5 @@ namespace WinFormsApp1
                 MessageBox.Show("无内容");
             }
         }//导出为文本
-
-        //https://github.com/mukekka/-
     }
 }
