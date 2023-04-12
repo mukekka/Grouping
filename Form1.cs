@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Diagnostics;
 using System.IO;
+using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
@@ -13,7 +14,7 @@ namespace WinFormsApp1
     {
         static void PrintArr(int[] te)
         {
-            foreach(int i in te)
+            foreach (int i in te)
             {
                 MessageBox.Show(i.ToString());
             }
@@ -35,7 +36,7 @@ namespace WinFormsApp1
         {//遍历空号表和可用座号表，如果可用座号表某项与空号重合，则将其剔除
             for (int i = 0; i < listBox1.Items.Count; i++)//遍历空号表<----------------重点：空号表要在外循环
             {
-                for (int j = 0 ; j < listBox4.Items.Count; j++)//遍历可用座号表
+                for (int j = 0; j < listBox4.Items.Count; j++)//遍历可用座号表
                 {
                     if (listBox4.Items[j].Equals(listBox1.Items[i]))//若相同
                         listBox4.Items.RemoveAt(j);//删去
@@ -144,7 +145,7 @@ namespace WinFormsApp1
                 RandomArr(rfuu);//随机打乱数组内的值
 
                 List<string> listzh = new List<string>();//定义一个string类型的表
-                
+
                 for (int i = 0; i < listBox2.Items.Count; i++)//按带头人人数循环
                 {
                     string jle = "";//初始化座号表
@@ -154,7 +155,7 @@ namespace WinFormsApp1
                     }
                     jle = jle.Substring(0, jle.Length - 1);
                     ptr += arlong;//保存数组指针
-                    listzh.Add("第"+(i+1)+"组—"+listBox2.Items[i].ToString()+" : "+jle);//把组号、带头人、“:”、分好的座号填入表
+                    listzh.Add("第" + (i + 1) + "组—" + listBox2.Items[i].ToString() + " : " + jle);//把组号、带头人、“:”、分好的座号填入表
                 }
                 foreach (string s in listzh)//遍历listzh表
                 {
@@ -259,7 +260,7 @@ namespace WinFormsApp1
             {
                 //e.Handled = true;
                 button3.Focus();
-                button3_Click(this,new EventArgs());
+                button3_Click(this, new EventArgs());
             }
             if (textBox1.Text == "")
                 e.Handled = true;
@@ -269,17 +270,17 @@ namespace WinFormsApp1
         {
             if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)//允许输入数字和退格
                 e.Handled = true;
-            else if(textBox2.Text == "\r")
+            else if (textBox2.Text == "\r")
             {
                 //e.Handled = true;
                 button2.Focus();
-                button2_Click(this,new EventArgs());
+                button2_Click(this, new EventArgs());
             }
             if (textBox1.Text == "")
                 e.Handled = true;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e){}
+        private void textBox1_TextChanged(object sender, EventArgs e) { }
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             if (textBox3.Text == "")
@@ -331,5 +332,18 @@ namespace WinFormsApp1
                 MessageBox.Show("无内容");
             }
         }//导出为文本
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                System.Diagnostics.Process.Start("https://github.com/mukekka/Grouping");
+            }
+            catch
+            {
+                MessageBox.Show("浏览器可能有错");
+            }
+        }
     }
 }
+//https://github.com/mukekka/Grouping
