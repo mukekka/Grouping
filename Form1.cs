@@ -44,7 +44,7 @@ namespace WinFormsApp1
             //若先循环可用座号表，可用座号表变化的时候会漏掉后面的数(若相邻两个数，前者大于后者(4,3)，会遗漏掉前者)
             //理解：将可用座号表当做一个数轴，如果先遍历可用座号表，若有两个数达成上面的条件，会先删除后面的那个数（3）
             //此时前面那个数（4）会顶替到（3）的位置，因为可用座号表在外循环，（4）不会被遍历到，就会被遗漏
-        }//空号
+        }  //空号
         public void yxti2()
         {//遍历带头人表和可用座号表，如果可用座号表某项与带头人重合，则将其剔除
             for (int i = 0; i < listBox2.Items.Count; i++)//遍历带头人表<----------------重点：带头人表要在外循环
@@ -59,67 +59,46 @@ namespace WinFormsApp1
             }
         }//带头人
 
-        public void quis2()//去除空号表与带头人表重复的
+        public void quis()
         {
+            for (int i = 0; i < listBox2.Items.Count; i++)//遍历带头人表
+            {
+                for (int j = 0; j < listBox1.Items.Count; j++)//遍历空号表
+                {
+                    if (listBox2.Items[i].Equals(listBox1.Items[j]))//如果某项重复
+                    {
+                        listBox1.Items.RemoveAt(j);//去除
+                    }
+                }
+            }
             for (int i = 0; i < listBox1.Items.Count; i++)//遍历空号表
             {
-                for (int j = i + 1; j < listBox2.Items.Count; j++)//遍历带头人表
+                for (int j = 0; j < listBox1.Items.Count; j++)//遍历空号表
                 {
-                    if (listBox1.Items[i].Equals(listBox2.Items[j]))//若空号表某项与某个带头人相同
+                    if (i == j)
+                    {
+                        continue;
+                    }
+                    else if (listBox1.Items[i].Equals(listBox1.Items[j]))//如果某项重复
                     {
                         listBox1.Items.RemoveAt(i);//去除
                     }
                 }
             }
-        }
-        public void quis()
-        {
-            //try//跳过错误
-            //{
-                //quis2();
-                for (int i = 0; i < listBox2.Items.Count; i++)//遍历带头人表
+            for (int i = 0; i < listBox2.Items.Count; i++)//遍历带头人表
+            {
+                for (int j = 0; j < listBox2.Items.Count; j++)
                 {
-                    for (int j = 0; j < listBox1.Items.Count; j++)//遍历空号表
+                    if (i == j)
                     {
-                        if (listBox2.Items[i].Equals(listBox1.Items[j]))//如果某项重复
-                        {
-                            listBox1.Items.RemoveAt(j);//去除
-                        }
+                        continue;
+                    }
+                    else if (listBox2.Items[i].Equals(listBox2.Items[j]))//如果某项重复
+                    {
+                        listBox2.Items.RemoveAt(i);//重合则删除
                     }
                 }
-                for (int i = 0; i < listBox1.Items.Count; i++)//遍历空号表
-                {
-                    for (int j = 0; j < listBox1.Items.Count; j++)//遍历空号表
-                    {
-                        if (i==j)
-                        {
-                            continue;
-                        }
-                        else if (listBox1.Items[i].Equals(listBox1.Items[j]))//如果某项重复
-                        {
-                            listBox1.Items.RemoveAt(i);//去除
-                        }
-                    }
-                }
-                for (int i = 0; i < listBox2.Items.Count; i++)//遍历带头人表
-                {
-                    for (int j = 0; j < listBox2.Items.Count; j++)
-                    {
-                        if (i==j)
-                        {
-                            continue;
-                        }
-                        else if (listBox2.Items[i].Equals(listBox2.Items[j]))//如果某项重复
-                        {
-                            listBox2.Items.RemoveAt(i);//重合则删除
-                        }
-                    }
-                }
-           // }
-            //catch
-            //{
-
-            //}
+            }
         }//剔除重复值
 
         public Form1()
@@ -276,9 +255,11 @@ namespace WinFormsApp1
         {
             if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)//允许输入数字和退格
                 e.Handled = true;
-            else if(e.KeyChar == 0xDA)//13,10,回车键的ASCII码
+            else if (textBox3.Text == "\r")
             {
-                button2.PerformClick();
+                //e.Handled = true;
+                button3.Focus();
+                button3_Click(this,new EventArgs());
             }
             if (textBox1.Text == "")
                 e.Handled = true;
@@ -288,28 +269,17 @@ namespace WinFormsApp1
         {
             if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)//允许输入数字和退格
                 e.Handled = true;
-            else if (e.KeyChar == 0xDA)
+            else if(textBox2.Text == "\r")
             {
-                button3.PerformClick();
+                //e.Handled = true;
+                button2.Focus();
+                button2_Click(this,new EventArgs());
             }
             if (textBox1.Text == "")
                 e.Handled = true;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            /*if (textBox1.Text == "")
-            {
-                button2.Enabled = false;
-                button3.Enabled = false;
-            }
-            else
-            {
-                button2.Enabled = true;
-                button3.Enabled = true;
-            }*/
-        }
-
+        private void textBox1_TextChanged(object sender, EventArgs e){}
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             if (textBox3.Text == "")
@@ -321,7 +291,6 @@ namespace WinFormsApp1
                 button3.Enabled = true;
             }
         }
-
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             if (textBox2.Text == "")
