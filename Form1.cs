@@ -17,102 +17,110 @@ namespace WinFormsApp1
             {
                 MessageBox.Show(i.ToString());
             }
-        }//æ‰“å°æ•°ç»„ï¼Œæµ‹è¯•ç”¨é€”
+        }//´òÓ¡Êı×é£¬²âÊÔÓÃÍ¾
         static void RandomArr(int[] arr)
         {
-            Random r = new Random();//åˆ›å»ºéšæœºç±»å¯¹è±¡ï¼Œå®šä¹‰å¼•ç”¨å˜é‡ä¸ºr
+            Random r = new Random();//´´½¨Ëæ»úÀà¶ÔÏó£¬¶¨ÒåÒıÓÃ±äÁ¿Îªr
             for (int i = 0; i < arr.Length; i++)
             {
-                int index = r.Next(arr.Length);//éšæœºè·å¾—0ï¼ˆåŒ…æ‹¬0ï¼‰åˆ°arr.Lengthï¼ˆä¸åŒ…æ‹¬arr.Lengthï¼‰çš„ç´¢å¼•
-                int temp = arr[i];  //å½“å‰å…ƒç´ å’Œéšæœºå…ƒç´ äº¤æ¢ä½ç½®
+                int index = r.Next(arr.Length);//Ëæ»ú»ñµÃ0£¨°üÀ¨0£©µ½arr.Length£¨²»°üÀ¨arr.Length£©µÄË÷Òı
+                int temp = arr[i];  //µ±Ç°ÔªËØºÍËæ»úÔªËØ½»»»Î»ÖÃ
                 arr[i] = arr[index];
                 arr[index] = temp;
             }
-            //PrintArr(arr);//è¾“å‡ºæ‰“ä¹±åçš„æ•°ç»„å…ƒç´ 
-        }//éšæœºæ‰“ä¹±æ•°ç»„
+            //PrintArr(arr);//Êä³ö´òÂÒºóµÄÊı×éÔªËØ
+        }//Ëæ»ú´òÂÒÊı×é
 
         public void yxti1()
-        {//éå†ç©ºå·è¡¨å’Œå¯ç”¨åº§å·è¡¨ï¼Œå¦‚æœå¯ç”¨åº§å·è¡¨æŸé¡¹ä¸ç©ºå·é‡åˆï¼Œåˆ™å°†å…¶å‰”é™¤
-            for (int i = 0; i < listBox1.Items.Count; i++)//éå†ç©ºå·è¡¨<----------------é‡ç‚¹ï¼šç©ºå·è¡¨è¦åœ¨å¤–å¾ªç¯
+        {//±éÀú¿ÕºÅ±íºÍ¿ÉÓÃ×ùºÅ±í£¬Èç¹û¿ÉÓÃ×ùºÅ±íÄ³ÏîÓë¿ÕºÅÖØºÏ£¬Ôò½«ÆäÌŞ³ı
+            for (int i = 0; i < listBox1.Items.Count; i++)//±éÀú¿ÕºÅ±í<----------------ÖØµã£º¿ÕºÅ±íÒªÔÚÍâÑ­»·
             {
-                for (int j = 0 ; j < listBox4.Items.Count; j++)//éå†å¯ç”¨åº§å·è¡¨
+                for (int j = 0 ; j < listBox4.Items.Count; j++)//±éÀú¿ÉÓÃ×ùºÅ±í
                 {
-                    if (listBox4.Items[j].Equals(listBox1.Items[i]))//è‹¥ç›¸åŒ
-                        listBox4.Items.RemoveAt(j);//åˆ å»
+                    if (listBox4.Items[j].Equals(listBox1.Items[i]))//ÈôÏàÍ¬
+                        listBox4.Items.RemoveAt(j);//É¾È¥
                 }
             }
-            //è‹¥å…ˆå¾ªç¯å¯ç”¨åº§å·è¡¨ï¼Œå¯ç”¨åº§å·è¡¨å˜åŒ–çš„æ—¶å€™ä¼šæ¼æ‰åé¢çš„æ•°(è‹¥ç›¸é‚»ä¸¤ä¸ªæ•°ï¼Œå‰è€…å¤§äºåè€…(4,3)ï¼Œä¼šé—æ¼æ‰å‰è€…)
-            //ç†è§£ï¼šå°†å¯ç”¨åº§å·è¡¨å½“åšä¸€ä¸ªæ•°è½´ï¼Œå¦‚æœå…ˆéå†å¯ç”¨åº§å·è¡¨ï¼Œè‹¥æœ‰ä¸¤ä¸ªæ•°è¾¾æˆä¸Šé¢çš„æ¡ä»¶ï¼Œä¼šå…ˆåˆ é™¤åé¢çš„é‚£ä¸ªæ•°ï¼ˆ3ï¼‰
-            //æ­¤æ—¶å‰é¢é‚£ä¸ªæ•°ï¼ˆ4ï¼‰ä¼šé¡¶æ›¿åˆ°ï¼ˆ3ï¼‰çš„ä½ç½®ï¼Œå› ä¸ºå¯ç”¨åº§å·è¡¨åœ¨å¤–å¾ªç¯ï¼Œï¼ˆ4ï¼‰ä¸ä¼šè¢«éå†åˆ°ï¼Œå°±ä¼šè¢«é—æ¼
-        }//ç©ºå·
+            //ÈôÏÈÑ­»·¿ÉÓÃ×ùºÅ±í£¬¿ÉÓÃ×ùºÅ±í±ä»¯µÄÊ±ºò»áÂ©µôºóÃæµÄÊı(ÈôÏàÁÚÁ½¸öÊı£¬Ç°Õß´óÓÚºóÕß(4,3)£¬»áÒÅÂ©µôÇ°Õß)
+            //Àí½â£º½«¿ÉÓÃ×ùºÅ±íµ±×öÒ»¸öÊıÖá£¬Èç¹ûÏÈ±éÀú¿ÉÓÃ×ùºÅ±í£¬ÈôÓĞÁ½¸öÊı´ï³ÉÉÏÃæµÄÌõ¼ş£¬»áÏÈÉ¾³ıºóÃæµÄÄÇ¸öÊı£¨3£©
+            //´ËÊ±Ç°ÃæÄÇ¸öÊı£¨4£©»á¶¥Ìæµ½£¨3£©µÄÎ»ÖÃ£¬ÒòÎª¿ÉÓÃ×ùºÅ±íÔÚÍâÑ­»·£¬£¨4£©²»»á±»±éÀúµ½£¬¾Í»á±»ÒÅÂ©
+        }//¿ÕºÅ
         public void yxti2()
-        {//éå†å¸¦å¤´äººè¡¨å’Œå¯ç”¨åº§å·è¡¨ï¼Œå¦‚æœå¯ç”¨åº§å·è¡¨æŸé¡¹ä¸å¸¦å¤´äººé‡åˆï¼Œåˆ™å°†å…¶å‰”é™¤
-            for (int i = 0; i < listBox2.Items.Count; i++)//éå†å¸¦å¤´äººè¡¨<----------------é‡ç‚¹ï¼šå¸¦å¤´äººè¡¨è¦åœ¨å¤–å¾ªç¯
+        {//±éÀú´øÍ·ÈË±íºÍ¿ÉÓÃ×ùºÅ±í£¬Èç¹û¿ÉÓÃ×ùºÅ±íÄ³ÏîÓë´øÍ·ÈËÖØºÏ£¬Ôò½«ÆäÌŞ³ı
+            for (int i = 0; i < listBox2.Items.Count; i++)//±éÀú´øÍ·ÈË±í<----------------ÖØµã£º´øÍ·ÈË±íÒªÔÚÍâÑ­»·
             {
-                for (int j = 0; j < listBox4.Items.Count; j++)//éå†å¯ç”¨åº§å·è¡¨
+                for (int j = 0; j < listBox4.Items.Count; j++)//±éÀú¿ÉÓÃ×ùºÅ±í
                 {
-                    if (listBox4.Items[j].Equals(listBox2.Items[i]))//è‹¥ç›¸åŒ
+                    if (listBox4.Items[j].Equals(listBox2.Items[i]))//ÈôÏàÍ¬
                     {
-                        listBox4.Items.RemoveAt(j);//åˆ å»
+                        listBox4.Items.RemoveAt(j);//É¾È¥
                     }
                 }
             }
-        }//å¸¦å¤´äºº
+        }//´øÍ·ÈË
 
-        public void quis2()//å»é™¤ç©ºå·è¡¨ä¸å¸¦å¤´äººè¡¨é‡å¤çš„
+        public void quis2()//È¥³ı¿ÕºÅ±íÓë´øÍ·ÈË±íÖØ¸´µÄ
         {
-            for (int i = 0; i < listBox1.Items.Count; i++)//éå†ç©ºå·è¡¨
+            for (int i = 0; i < listBox1.Items.Count; i++)//±éÀú¿ÕºÅ±í
             {
-                for (int j = i + 1; j < listBox2.Items.Count; j++)//éå†å¸¦å¤´äººè¡¨
+                for (int j = i + 1; j < listBox2.Items.Count; j++)//±éÀú´øÍ·ÈË±í
                 {
-                    if (listBox1.Items[i].Equals(listBox2.Items[j]))//è‹¥ç©ºå·è¡¨æŸé¡¹ä¸æŸä¸ªå¸¦å¤´äººç›¸åŒ
+                    if (listBox1.Items[i].Equals(listBox2.Items[j]))//Èô¿ÕºÅ±íÄ³ÏîÓëÄ³¸ö´øÍ·ÈËÏàÍ¬
                     {
-                        listBox1.Items.RemoveAt(i);//å»é™¤
+                        listBox1.Items.RemoveAt(i);//È¥³ı
                     }
                 }
             }
         }
         public void quis()
         {
-            try//è·³è¿‡é”™è¯¯
-            {
-                quis2();
-                for (int i = 0; i < listBox1.Items.Count; i++)//éå†ç©ºå·äººè¡¨
+            //try//Ìø¹ı´íÎó
+            //{
+                //quis2();
+                for (int i = 0; i < listBox2.Items.Count; i++)//±éÀú´øÍ·ÈË±í
                 {
-                    for (int j = i + 1; j < listBox2.Items.Count; j++)//éå†å¸¦å¤´äººè¡¨
+                    for (int j = 0; j < listBox1.Items.Count; j++)//±éÀú¿ÕºÅ±í
                     {
-                        if (listBox1.Items[i].Equals(listBox2.Items[j]))//å¦‚æœæŸé¡¹é‡å¤
+                        if (listBox2.Items[i].Equals(listBox1.Items[j]))//Èç¹ûÄ³ÏîÖØ¸´
                         {
-                            listBox1.Items.RemoveAt(i);//å»é™¤
+                            listBox1.Items.RemoveAt(j);//È¥³ı
                         }
                     }
                 }
-                for (int i = 0; i < listBox1.Items.Count; i++)//éå†ç©ºå·è¡¨
+                for (int i = 0; i < listBox1.Items.Count; i++)//±éÀú¿ÕºÅ±í
                 {
-                    for (int j = i + 1; j < listBox1.Items.Count; j++)//éå†ç©ºå·è¡¨
+                    for (int j = 0; j < listBox1.Items.Count; j++)//±éÀú¿ÕºÅ±í
                     {
-                        if (listBox1.Items[i].Equals(listBox1.Items[j]))//å¦‚æœæŸé¡¹é‡å¤
+                        if (i==j)
                         {
-                            listBox1.Items.RemoveAt(i);//å»é™¤
+                            continue;
+                        }
+                        else if (listBox1.Items[i].Equals(listBox1.Items[j]))//Èç¹ûÄ³ÏîÖØ¸´
+                        {
+                            listBox1.Items.RemoveAt(i);//È¥³ı
                         }
                     }
                 }
-                for (int i = 0; i < listBox2.Items.Count; i++)//éå†å¸¦å¤´äººè¡¨
+                for (int i = 0; i < listBox2.Items.Count; i++)//±éÀú´øÍ·ÈË±í
                 {
-                    for (int j = i + 1; j < listBox2.Items.Count; j++)
+                    for (int j = 0; j < listBox2.Items.Count; j++)
                     {
-                        if (listBox2.Items[i].Equals(listBox2.Items[j]))//å¦‚æœæŸé¡¹é‡å¤
+                        if (i==j)
                         {
-                            listBox2.Items.RemoveAt(i);//é‡åˆåˆ™åˆ é™¤
+                            continue;
+                        }
+                        else if (listBox2.Items[i].Equals(listBox2.Items[j]))//Èç¹ûÄ³ÏîÖØ¸´
+                        {
+                            listBox2.Items.RemoveAt(i);//ÖØºÏÔòÉ¾³ı
                         }
                     }
                 }
-            }
-            catch
-            {
+           // }
+            //catch
+            //{
 
-            }
-        }//å‰”é™¤é‡å¤å€¼
+            //}
+        }//ÌŞ³ıÖØ¸´Öµ
 
         public Form1()
         {
@@ -121,60 +129,60 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (listBox2.Items.Count == 0)//è‹¥å¸¦å¤´äººæ•°é‡ä¸º0
+            if (listBox2.Items.Count == 0)//Èô´øÍ·ÈËÊıÁ¿Îª0
             {
-                MessageBox.Show("å¸¦å¤´äººè‡³å°‘è¾“å…¥ä¸€ä¸ª");
+                MessageBox.Show("´øÍ·ÈËÖÁÉÙÊäÈëÒ»¸ö");
             }
             else
             {
-                listBox3.Items.Clear();//æ¸…ç©ºç»“æœ
+                listBox3.Items.Clear();//Çå¿Õ½á¹û
                 if (listBox4.Items.Count > 0)
                 {
-                    listBox4.Items.Clear();//æ¸…ç©ºå¯ç”¨åº§å·
+                    listBox4.Items.Clear();//Çå¿Õ¿ÉÓÃ×ùºÅ
                 }
-                quis();//å‰”é™¤é‡å¤å€¼
-                if (textBox1.Text == "" || textBox1.Text == "0")//è‹¥äººæ•°ä¸º0æˆ–ç©º
+                quis();//ÌŞ³ıÖØ¸´Öµ
+                if (textBox1.Text == "" || textBox1.Text == "0")//ÈôÈËÊıÎª0»ò¿Õ
                 {
-                    MessageBox.Show("äººæ•°ä¸èƒ½ä¸ºç©ºæˆ–ä¸ºé›¶");
+                    MessageBox.Show("ÈËÊı²»ÄÜÎª¿Õ»òÎªÁã");
                     textBox1.Clear();
                 }
                 for (int i = 0; i < Convert.ToInt32(textBox1.Text); i++)
                 {
-                    listBox4.Items.Add(Convert.ToString(i + 1));//å°†å…¨éƒ¨åº§å·å¡«å…¥è¡¨
+                    listBox4.Items.Add(Convert.ToString(i + 1));//½«È«²¿×ùºÅÌîÈë±í
                 }
-                yxti2();//å‰”é™¤ç©ºå·
-                yxti1();//å‰”é™¤åº§å·
+                yxti2();//ÌŞ³ı¿ÕºÅ
+                yxti1();//ÌŞ³ı×ùºÅ
 
-                int arlong = listBox4.Items.Count / listBox2.Items.Count;//æ±‚å‡ºå¹³å‡æ¯ä¸ªå¸¦å¤´äººæ‰€å¸¦çš„ç»„å‘˜æ•°é‡
-                int arlongy = listBox4.Items.Count % listBox2.Items.Count;//å¤šå‡ºçš„ç»„å‘˜ï¼Œç¨ååˆ†é…
+                int arlong = listBox4.Items.Count / listBox2.Items.Count;//Çó³öÆ½¾ùÃ¿¸ö´øÍ·ÈËËù´øµÄ×éÔ±ÊıÁ¿
+                int arlongy = listBox4.Items.Count % listBox2.Items.Count;//¶à³öµÄ×éÔ±£¬ÉÔºó·ÖÅä
 
-                int[] rfuu = new int[listBox4.Items.Count];//å®šä¹‰ä¸€ä¸ªé•¿åº¦ç­‰äºå¯ç”¨åº§å·è¡¨é•¿åº¦çš„æ•°ç»„
+                int[] rfuu = new int[listBox4.Items.Count];//¶¨ÒåÒ»¸ö³¤¶ÈµÈÓÚ¿ÉÓÃ×ùºÅ±í³¤¶ÈµÄÊı×é
                 int ptr = 0;
                 for (int i = 0; i < listBox4.Items.Count; i++)//
                 {
-                    rfuu[i] = Convert.ToInt32(listBox4.Items[i]);//å°†å¯ç”¨åº§å·ä¸­çš„å€¼ä¾æ¬¡å¡«å…¥æ•°ç»„
+                    rfuu[i] = Convert.ToInt32(listBox4.Items[i]);//½«¿ÉÓÃ×ùºÅÖĞµÄÖµÒÀ´ÎÌîÈëÊı×é
                 }
-                RandomArr(rfuu);//éšæœºæ‰“ä¹±æ•°ç»„å†…çš„å€¼
+                RandomArr(rfuu);//Ëæ»ú´òÂÒÊı×éÄÚµÄÖµ
 
-                List<string> listzh = new List<string>();//å®šä¹‰ä¸€ä¸ªstringç±»å‹çš„è¡¨
+                List<string> listzh = new List<string>();//¶¨ÒåÒ»¸östringÀàĞÍµÄ±í
                 
-                for (int i = 0; i < listBox2.Items.Count; i++)//æŒ‰å¸¦å¤´äººäººæ•°å¾ªç¯
+                for (int i = 0; i < listBox2.Items.Count; i++)//°´´øÍ·ÈËÈËÊıÑ­»·
                 {
-                    string jle = "";//åˆå§‹åŒ–åº§å·è¡¨
-                    for (int j = ptr; j < ptr + arlong; j++)//å¹³å‡æ¯ä¸ªå¸¦å¤´äººè¦å¸¦çš„äººæ•°
+                    string jle = "";//³õÊ¼»¯×ùºÅ±í
+                    for (int j = ptr; j < ptr + arlong; j++)//Æ½¾ùÃ¿¸ö´øÍ·ÈËÒª´øµÄÈËÊı
                     {
-                        jle += rfuu[j].ToString() + ",";//å¡«å…¥åº§å·å’Œé€—å·
+                        jle += rfuu[j].ToString() + ",";//ÌîÈë×ùºÅºÍ¶ººÅ
                     }
                     jle = jle.Substring(0, jle.Length - 1);
-                    ptr += arlong;//ä¿å­˜æ•°ç»„æŒ‡é’ˆ
-                    listzh.Add("ç¬¬"+(i+1)+"ç»„â€”"+listBox2.Items[i].ToString()+" : "+jle);//æŠŠç»„å·ã€å¸¦å¤´äººã€â€œ:â€ã€åˆ†å¥½çš„åº§å·å¡«å…¥è¡¨
+                    ptr += arlong;//±£´æÊı×éÖ¸Õë
+                    listzh.Add("µÚ"+(i+1)+"×é¡ª"+listBox2.Items[i].ToString()+" : "+jle);//°Ñ×éºÅ¡¢´øÍ·ÈË¡¢¡°:¡±¡¢·ÖºÃµÄ×ùºÅÌîÈë±í
                 }
-                foreach (string s in listzh)//éå†listzhè¡¨
+                foreach (string s in listzh)//±éÀúlistzh±í
                 {
-                    listBox3.Items.Add(s);//å¡«å…¥ç»“æœ
+                    listBox3.Items.Add(s);//ÌîÈë½á¹û
                 }
-                //è¾“å‡ºå‰©ä½™çš„åº§å·
-                string doyu = "å‰©ä½™çš„åº§å·ï¼š";
+                //Êä³öÊ£ÓàµÄ×ùºÅ
+                string doyu = "Ê£ÓàµÄ×ùºÅ£º";
                 for (int i = ptr; i < rfuu.Length; i++)//
                 {
                     doyu += rfuu[i].ToString() + ",";
@@ -182,23 +190,23 @@ namespace WinFormsApp1
                 doyu = doyu.Substring(0, doyu.Length - 1);
                 listBox3.Items.Add(doyu);
             }
-        }//å®Œæˆ
+        }//Íê³É
 
-        private void button3_Click(object sender, EventArgs e)//å·¦ä¸‹ä¸€ä¸ª
+        private void button3_Click(object sender, EventArgs e)//×óÏÂÒ»¸ö
         {
             if (textBox3.Text == "0")
             {
-                MessageBox.Show("åº§å·ä¸èƒ½ä¸ºé›¶");
+                MessageBox.Show("×ùºÅ²»ÄÜÎªÁã");
                 textBox3.Clear();
             }
             else if (Convert.ToInt32(textBox3.Text) > Convert.ToInt32(textBox1.Text))
             {
-                MessageBox.Show("åº§å·è¶…å‡ºèŒƒå›´");
+                MessageBox.Show("×ùºÅ³¬³ö·¶Î§");
                 textBox3.Clear();
             }
             else if (listBox1.Items.Count > Convert.ToInt32(textBox1.Text) - 1)
             {
-                MessageBox.Show("äººæ•°å¤ªå¤šäº†");
+                MessageBox.Show("ÈËÊıÌ«¶àÁË");
                 textBox3.Clear();
             }
             else
@@ -212,30 +220,30 @@ namespace WinFormsApp1
         {
             if (listBox1.Items.Count == 0)
             {
-                MessageBox.Show("æ²¡æ³•å†æ’¤äº†(ï¼ï¸¿ï¼œ)");
+                MessageBox.Show("Ã»·¨ÔÙ³·ÁË(£¾¦ä£¼)");
             }
             else
             {
                 listBox1.Items.RemoveAt(listBox1.Items.Count - 1);
                 textBox3.Clear();
             }
-        }//å·¦æ’¤å›
+        }//×ó³·»Ø
 
-        private void button2_Click(object sender, EventArgs e)//å³ä¸‹ä¸€ä¸ª
+        private void button2_Click(object sender, EventArgs e)//ÓÒÏÂÒ»¸ö
         {
             if (textBox2.Text == "0")
             {
-                MessageBox.Show("å¸¦å¤´äººä¸èƒ½ä¸ºé›¶");
+                MessageBox.Show("´øÍ·ÈË²»ÄÜÎªÁã");
                 textBox2.Clear();
             }
             else if (Convert.ToInt32(textBox2.Text) > Convert.ToInt32(textBox1.Text))
             {
-                MessageBox.Show("åº§å·è¶…å‡ºèŒƒå›´");
+                MessageBox.Show("×ùºÅ³¬³ö·¶Î§");
                 textBox2.Clear();
             }
             else if (listBox2.Items.Count > Convert.ToInt32(textBox1.Text) - 1)
             {
-                MessageBox.Show("äººæ•°å¤ªå¤šäº†");
+                MessageBox.Show("ÈËÊıÌ«¶àÁË");
                 textBox2.Clear();
             }
             else
@@ -249,26 +257,26 @@ namespace WinFormsApp1
         {
             if (listBox2.Items.Count == 0)
             {
-                MessageBox.Show("æ²¡æ³•å†æ’¤äº†(ï¼ï¸¿ï¼œ)");
+                MessageBox.Show("Ã»·¨ÔÙ³·ÁË(£¾¦ä£¼)");
             }
             else
             {
                 listBox2.Items.RemoveAt(listBox2.Items.Count - 1);
                 textBox2.Clear();
             }
-        }//å³æ’¤å›
+        }//ÓÒ³·»Ø
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)//å…è®¸è¾“å…¥æ•°å­—å’Œé€€æ ¼
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)//ÔÊĞíÊäÈëÊı×ÖºÍÍË¸ñ
                 e.Handled = true;
         }
 
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)//å…è®¸è¾“å…¥æ•°å­—å’Œé€€æ ¼
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)//ÔÊĞíÊäÈëÊı×ÖºÍÍË¸ñ
                 e.Handled = true;
-            else if(e.KeyChar == 0xDA)//13,10,å›è½¦é”®çš„ASCIIç 
+            else if(e.KeyChar == 0xDA)//13,10,»Ø³µ¼üµÄASCIIÂë
             {
                 button2.PerformClick();
             }
@@ -278,7 +286,7 @@ namespace WinFormsApp1
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)//å…è®¸è¾“å…¥æ•°å­—å’Œé€€æ ¼
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 8)//ÔÊĞíÊäÈëÊı×ÖºÍÍË¸ñ
                 e.Handled = true;
             else if (e.KeyChar == 0xDA)
             {
@@ -329,9 +337,9 @@ namespace WinFormsApp1
         private void button7_Click(object sender, EventArgs e)
         {
             quis();
-        }//å»é‡
+        }//È¥ÖØ
 
-        private void button9_Click(object sender, EventArgs e)//éšæœºåŠŸèƒ½
+        private void button9_Click(object sender, EventArgs e)//Ëæ»ú¹¦ÄÜ
         {
             Form2 f = new Form2();
             f.ShowDialog();
@@ -346,13 +354,13 @@ namespace WinFormsApp1
                 {
                     str[i] = listBox3.Items[i].ToString();
                 }
-                File.WriteAllLines(@".\åˆ†ç»„.txt", str);
-                MessageBox.Show("åˆ›å»ºå®Œæˆ");
+                File.WriteAllLines(@".\·Ö×é.txt", str);
+                MessageBox.Show("´´½¨Íê³É");
             }
             else
             {
-                MessageBox.Show("æ— å†…å®¹");
+                MessageBox.Show("ÎŞÄÚÈİ");
             }
-        }//å¯¼å‡ºä¸ºæ–‡æœ¬
+        }//µ¼³öÎªÎÄ±¾
     }
 }
