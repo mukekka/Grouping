@@ -42,6 +42,8 @@ namespace WinFormsApp1
                 }
             }
             //若先循环可用座号表，可用座号表变化的时候会漏掉后面的数(若相邻两个数，前者大于后者(4,3)，会遗漏掉前者)
+            //理解：将可用座号表当做一个数轴，如果先遍历可用座号表，若有两个数达成上面的条件，会先删除后面的那个数（3）
+            //此时前面那个数（4）会顶替到（3）的位置，因为可用座号表在外循环，（4）不会被遍历到，就会被遗漏
         }//空号
         public void yxti2()
         {//遍历带头人表和可用座号表，如果可用座号表某项与带头人重合，则将其剔除
@@ -72,24 +74,28 @@ namespace WinFormsApp1
         }
         public void quis()
         {
-            try//跳过错误
-            {
-                quis2();
-                for (int i = 0; i < listBox1.Items.Count; i++)//遍历空号人表
+            //try//跳过错误
+            //{
+                //quis2();
+                for (int i = 0; i < listBox2.Items.Count; i++)//遍历带头人表
                 {
-                    for (int j = i + 1; j < listBox2.Items.Count; j++)//遍历带头人表
+                    for (int j = 0; j < listBox1.Items.Count; j++)//遍历空号表
                     {
-                        if (listBox1.Items[i].Equals(listBox2.Items[j]))//如果某项重复
+                        if (listBox2.Items[i].Equals(listBox1.Items[j]))//如果某项重复
                         {
-                            listBox1.Items.RemoveAt(i);//去除
+                            listBox1.Items.RemoveAt(j);//去除
                         }
                     }
                 }
                 for (int i = 0; i < listBox1.Items.Count; i++)//遍历空号表
                 {
-                    for (int j = i + 1; j < listBox1.Items.Count; j++)//遍历空号表
+                    for (int j = 0; j < listBox1.Items.Count; j++)//遍历空号表
                     {
-                        if (listBox1.Items[i].Equals(listBox1.Items[j]))//如果某项重复
+                        if (i==j)
+                        {
+                            continue;
+                        }
+                        else if (listBox1.Items[i].Equals(listBox1.Items[j]))//如果某项重复
                         {
                             listBox1.Items.RemoveAt(i);//去除
                         }
@@ -97,19 +103,23 @@ namespace WinFormsApp1
                 }
                 for (int i = 0; i < listBox2.Items.Count; i++)//遍历带头人表
                 {
-                    for (int j = i + 1; j < listBox2.Items.Count; j++)
+                    for (int j = 0; j < listBox2.Items.Count; j++)
                     {
-                        if (listBox2.Items[i].Equals(listBox2.Items[j]))//如果某项重复
+                        if (i==j)
+                        {
+                            continue;
+                        }
+                        else if (listBox2.Items[i].Equals(listBox2.Items[j]))//如果某项重复
                         {
                             listBox2.Items.RemoveAt(i);//重合则删除
                         }
                     }
                 }
-            }
-            catch
-            {
+           // }
+            //catch
+            //{
 
-            }
+            //}
         }//剔除重复值
 
         public Form1()
