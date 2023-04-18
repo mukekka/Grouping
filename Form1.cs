@@ -162,13 +162,15 @@ namespace WinFormsApp1
                     listBox3.Items.Add(s);//填入结果
                 }
                 //输出剩余的座号
-                string doyu = "剩余的座号：";
-                for (int i = ptr; i < rfuu.Length; i++)//
-                {
-                    doyu += rfuu[i].ToString() + ",";
+                if(ptr < rfuu.Length){
+                    string doyu = "剩余的座号：";
+                    for (int i = ptr; i < rfuu.Length; i++)//
+                    {
+                        doyu += rfuu[i].ToString() + ",";
+                    }
+                    doyu = doyu.Substring(0, doyu.Length - 1);
+                    listBox3.Items.Add(doyu);
                 }
-                doyu = doyu.Substring(0, doyu.Length - 1);
-                listBox3.Items.Add(doyu);
             }
         }//完成
 
