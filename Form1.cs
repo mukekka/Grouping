@@ -337,14 +337,8 @@ namespace WinFormsApp1
 
         private void button6_Click(object sender, EventArgs e)
         {
-            try
-            {
-                System.Diagnostics.Process.Start("https://github.com/mukekka/Grouping");
-            }
-            catch
-            {
-                MessageBox.Show("浏览器可能有错");
-            }
+            Form3 f = new Form3();
+            f.ShowDialog();
         }
     }
 }
